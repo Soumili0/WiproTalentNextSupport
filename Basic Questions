@@ -1,0 +1,7 @@
+1. What is JDK?
+JDK (Java Development Kit) is a software development kit used to develop,
+compile, debug, and run Java applications. It contains the JRE (Java Runtime Environment),
+the JVM (Java Virtual Machine), and development tools like javac (compiler),
+java (application launcher), javadoc (documentation generator), and jar (archive tool). 
+In simple terms, if we want to write and develop Java programs, we need the JDK.
+
