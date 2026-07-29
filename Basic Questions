@@ -1,11 +1,15 @@
 1. What is JDK?
--> JDK (Java Development Kit) is a software development kit used to develop,compile, debug, and run Java applications. It contains the JRE (Java Runtime Environment),
-the JVM (Java Virtual Machine), and development tools like javac (compiler),java (application launcher), javadoc (documentation generator), and jar (archive tool). 
+-> JDK (Java Development Kit) is a software development kit used to develop,compile, debug,
+and run Java applications. It contains the JRE (Java Runtime Environment),
+the JVM (Java Virtual Machine), and development tools like javac (compiler),
+java (application launcher), javadoc (documentation generator), and jar (archive tool). 
 In simple terms, if we want to write and develop Java programs, we need the JDK.
 
 2.What is JRE?
--> JRE (Java Runtime Environment) is the environment required to run Java applications. It contains the JVM (Java Virtual Machine) and 
-the necessary Java class libraries and supporting files. However, it does not include development tools like the Java compiler (javac). 
+-> JRE (Java Runtime Environment) is the environment required to run Java applications. 
+It contains the JVM (Java Virtual Machine) and 
+the necessary Java class libraries and supporting files. However, it does not include
+development tools like the Java compiler (javac). 
 Therefore, the JRE is used only for running Java programs, not for developing them.
 
 3.What is JIT Compiler?
@@ -14,9 +18,11 @@ Instead of interpreting bytecode line by line every time, the JIT compiler conve
 into native machine code at runtime. This compiled code is stored in memory, so the next time it is needed, it executes much faster.
 
 4.What is Adaptive Optimizer?
--> Adaptive Optimization is a JVM technique that continuously monitors how a Java program executes and optimizes the frequently used (hot) code at runtime.
+-> Adaptive Optimization is a JVM technique that continuously monitors how a 
+Java program executes and optimizes the frequently used (hot) code at runtime.
 The JVM first interprets the bytecode, and when it detects methods or loops that are executed many times,
-the JIT compiler compiles them into optimized native machine code. This makes the application run faster without requiring any changes to the source code.
+the JIT compiler compiles them into optimized native machine code. 
+This makes the application run faster without requiring any changes to the source code.
 
 5.What is Class Loader?
 -> Class Loader is a part of the JVM that is responsible for loading Java class files (.class) into memory when they are needed. 
@@ -24,10 +30,12 @@ It loads classes dynamically during runtime, so classes are not loaded all at on
 
 6.What is Bytecode Verifier?
 -> Bytecode Verifier is a security component of the JVM that checks the validity and safety of Java bytecode before it is executed. 
-It ensures that the bytecode follows Java's rules and does not perform illegal or unsafe operations, helping protect the system from malicious or corrupted code.
+It ensures that the bytecode follows Java's rules and does not perform
+illegal or unsafe operations, helping protect the system from malicious or corrupted code.
 
 7.What is a Compiler?
--> A compiler is a software program that translates source code written in a high-level programming language into machine code or an intermediate
+-> A compiler is a software program that translates source code written in a 
+high-level programming language into machine code or an intermediate
 form so that the computer can execute it. It checks the code for syntax errors and generates an executable or intermediate code.
 
 8.What is an Interpreter?
@@ -36,35 +44,49 @@ It reads the source code line by line, executes each line immediately, and stops
 
 9.Difference Between Compiler and Interpreter.
 ->A compiler translates the entire source code into machine code or bytecode before execution, making the program run faster. 
-An interpreter translates and executes the program one line at a time, which makes execution slower but helps identify errors immediately.
-In Java, javac is the compiler, while the JVM initially interprets the bytecode and uses the JIT compiler to optimize frequently executed code.
+An interpreter translates and executes the program one line at a time, 
+which makes execution slower but helps identify errors immediately.
+In Java, javac is the compiler, while the JVM initially interprets the 
+bytecode and uses the JIT compiler to optimize frequently executed code.
 
 Easy Way to Remember
 Compiler = Translate First → Execute Later
 Interpreter = Translate and Execute Together
 
 10.What are the Components of JVM?
--> The Java Virtual Machine (JVM) consists of several components that work together to load, verify, execute, and manage Java programs.
-The main components are Class Loader, Method Area, Heap Memory, Java Stacks, Program Counter (PC) Register, Native Method Stack, Execution Engine, Bytecode Verifier,
-JIT (Just-In-Time) Compiler, and Garbage Collector. The Class Loader loads the .class files into memory,the Bytecode Verifier checks that the bytecode is valid and secure, 
-and the Execution Engine executes the bytecode. The JIT Compiler improves performance by converting frequently executed bytecode into native machine code, 
-while the Garbage Collector automaticallyfrees unused memory. The JVM also manages memory through the Method Area, Heap, Java Stacks, PC Register, 
+-> The Java Virtual Machine (JVM) consists of several components that work
+together to load, verify, execute, and manage Java programs.
+The main components are Class Loader, Method Area, Heap Memory, Java Stacks,
+Program Counter (PC) Register, Native Method Stack, Execution Engine, Bytecode Verifier,
+JIT (Just-In-Time) Compiler, and Garbage Collector. The Class Loader loads
+the .class files into memory,the Bytecode Verifier checks that the bytecode is valid and secure, 
+and the Execution Engine executes the bytecode. The JIT Compiler improves
+performance by converting frequently executed bytecode into native machine code, 
+while the Garbage Collector automaticallyfrees unused memory. The JVM also 
+manages memory through the Method Area, Heap, Java Stacks, PC Register, 
 and Native Method Stack, ensuring efficient execution of Java applications.
 
 11.What is Platform Independence?
--> Platform independence means that a program can run on different operating systems, such as Windows, Linux, and macOS, without changing its source code.
-Java achieves platform independence by compiling the source code into bytecode (.class files) instead of machine code. This bytecode is executed by the Java 
-Virtual Machine (JVM), which is available for different operating systems. As a result, the same Java program can run on any platform that has a compatible JVM.
+-> Platform independence means that a program can run on different operating 
+systems, such as Windows, Linux, and macOS, without changing its source code.
+Java achieves platform independence by compiling the source code into bytecode 
+(.class files) instead of machine code. This bytecode is executed by the Java 
+Virtual Machine (JVM), which is available for different operating systems. 
+As a result, the same Java program can run on any platform that has a compatible JVM.
 This concept is known as "Write Once, Run Anywhere (WORA).
 
 12.How Does Java Achieve Platform Independence?
--> Java achieves platform independence by using bytecode and the Java Virtual Machine (JVM). The Java source code (.java) is first compiled by the javac compiler 
-into bytecode (.class), which is platform-independent. This bytecode is not specific to any operating system. Each operating system has its own JVM, which reads 
-the same bytecode and converts it into native machine code for that platform. As a result, the same Java program can run on Windows, Linux, macOS, or any other 
+-> Java achieves platform independence by using bytecode and the Java Virtual Machine (JVM). 
+The Java source code (.java) is first compiled by the javac compiler 
+into bytecode (.class), which is platform-independent. This bytecode is not specific
+to any operating system. Each operating system has its own JVM, which reads 
+the same bytecode and converts it into native machine code for that platform. As a 
+result, the same Java program can run on Windows, Linux, macOS, or any other 
 platform without changing the source code. This is known as "Write Once, Run Anywhere (WORA)."
 
 13.How to Access Command Line Arguments in Java?
--> Command line arguments are values passed to a Java program when it is executed from the command line. They are stored in the String[] args parameter of the main() method.
+-> Command line arguments are values passed to a Java program when it is executed \
+from the command line. They are stored in the String[] args parameter of the main() method.
 Each argument is accessed using its index, where args[0] is the first argument, args[1] is the second, and so on.
 public class Demo {
     public static void main(String[] args) {
