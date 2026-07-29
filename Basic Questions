@@ -1,7 +1,207 @@
 1. What is JDK?
-JDK (Java Development Kit) is a software development kit used to develop,
-compile, debug, and run Java applications. It contains the JRE (Java Runtime Environment),
-the JVM (Java Virtual Machine), and development tools like javac (compiler),
-java (application launcher), javadoc (documentation generator), and jar (archive tool). 
+-> JDK (Java Development Kit) is a software development kit used to develop,compile, debug, and run Java applications. It contains the JRE (Java Runtime Environment),
+the JVM (Java Virtual Machine), and development tools like javac (compiler),java (application launcher), javadoc (documentation generator), and jar (archive tool). 
 In simple terms, if we want to write and develop Java programs, we need the JDK.
+
+2.What is JRE?
+-> JRE (Java Runtime Environment) is the environment required to run Java applications. It contains the JVM (Java Virtual Machine) and 
+the necessary Java class libraries and supporting files. However, it does not include development tools like the Java compiler (javac). 
+Therefore, the JRE is used only for running Java programs, not for developing them.
+
+3.What is JIT Compiler?
+-> JIT (Just-In-Time) Compiler is a component of the JVM that improves the performance of Java applications.
+Instead of interpreting bytecode line by line every time, the JIT compiler converts frequently used (hot) bytecode
+into native machine code at runtime. This compiled code is stored in memory, so the next time it is needed, it executes much faster.
+
+4.What is Adaptive Optimizer?
+-> Adaptive Optimization is a JVM technique that continuously monitors how a Java program executes and optimizes the frequently used (hot) code at runtime.
+The JVM first interprets the bytecode, and when it detects methods or loops that are executed many times,
+the JIT compiler compiles them into optimized native machine code. This makes the application run faster without requiring any changes to the source code.
+
+5.What is Class Loader?
+-> Class Loader is a part of the JVM that is responsible for loading Java class files (.class) into memory when they are needed. 
+It loads classes dynamically during runtime, so classes are not loaded all at once when the program starts.
+
+6.What is Bytecode Verifier?
+-> Bytecode Verifier is a security component of the JVM that checks the validity and safety of Java bytecode before it is executed. 
+It ensures that the bytecode follows Java's rules and does not perform illegal or unsafe operations, helping protect the system from malicious or corrupted code.
+
+7.What is a Compiler?
+-> A compiler is a software program that translates source code written in a high-level programming language into machine code or an intermediate
+form so that the computer can execute it. It checks the code for syntax errors and generates an executable or intermediate code.
+
+8.What is an Interpreter?
+-> An interpreter is a software program that translates and executes a program one statement at a time. 
+It reads the source code line by line, executes each line immediately, and stops if it encounters an error.
+
+9.Difference Between Compiler and Interpreter.
+->A compiler translates the entire source code into machine code or bytecode before execution, making the program run faster. 
+An interpreter translates and executes the program one line at a time, which makes execution slower but helps identify errors immediately.
+In Java, javac is the compiler, while the JVM initially interprets the bytecode and uses the JIT compiler to optimize frequently executed code.
+
+Easy Way to Remember
+Compiler = Translate First → Execute Later
+Interpreter = Translate and Execute Together
+
+10.What are the Components of JVM?
+-> The Java Virtual Machine (JVM) consists of several components that work together to load, verify, execute, and manage Java programs.
+The main components are Class Loader, Method Area, Heap Memory, Java Stacks, Program Counter (PC) Register, Native Method Stack, Execution Engine, Bytecode Verifier,
+JIT (Just-In-Time) Compiler, and Garbage Collector. The Class Loader loads the .class files into memory,the Bytecode Verifier checks that the bytecode is valid and secure, 
+and the Execution Engine executes the bytecode. The JIT Compiler improves performance by converting frequently executed bytecode into native machine code, 
+while the Garbage Collector automaticallyfrees unused memory. The JVM also manages memory through the Method Area, Heap, Java Stacks, PC Register, 
+and Native Method Stack, ensuring efficient execution of Java applications.
+
+11.What is Platform Independence?
+-> Platform independence means that a program can run on different operating systems, such as Windows, Linux, and macOS, without changing its source code.
+Java achieves platform independence by compiling the source code into bytecode (.class files) instead of machine code. This bytecode is executed by the Java 
+Virtual Machine (JVM), which is available for different operating systems. As a result, the same Java program can run on any platform that has a compatible JVM.
+This concept is known as "Write Once, Run Anywhere (WORA).
+
+12.How Does Java Achieve Platform Independence?
+-> Java achieves platform independence by using bytecode and the Java Virtual Machine (JVM). The Java source code (.java) is first compiled by the javac compiler 
+into bytecode (.class), which is platform-independent. This bytecode is not specific to any operating system. Each operating system has its own JVM, which reads 
+the same bytecode and converts it into native machine code for that platform. As a result, the same Java program can run on Windows, Linux, macOS, or any other 
+platform without changing the source code. This is known as "Write Once, Run Anywhere (WORA)."
+
+13.How to Access Command Line Arguments in Java?
+-> Command line arguments are values passed to a Java program when it is executed from the command line. They are stored in the String[] args parameter of the main() method.
+Each argument is accessed using its index, where args[0] is the first argument, args[1] is the second, and so on.
+public class Demo {
+    public static void main(String[] args) {
+        System.out.println("First Argument: " + args[0]);
+        System.out.println("Second Argument: " + args[1]);
+    }
+}
+compile: javac Demo.java
+run: java Demo Hello Java
+output: First Argument: Hello
+Second Argument: Java
+
+14.Data Types in Java and Their Sizes
+Java data types are divided into two categories:
+Primitive Data Types (8 types)
+Non-Primitive (Reference) Data Types such as String, Arrays, Classes, Interfaces, etc.
+| Data Type | Size                                                                                     | Default Value | Range                            |
+| --------- | ---------------------------------------------------------------------------------------- | ------------- | -------------------------------- |
+| `byte`    | 1 byte (8 bits)                                                                          | `0`           | -128 to 127                      |
+| `short`   | 2 bytes (16 bits)                                                                        | `0`           | -32,768 to 32,767                |
+| `int`     | 4 bytes (32 bits)                                                                        | `0`           | -2³¹ to 2³¹-1                    |
+| `long`    | 8 bytes (64 bits)                                                                        | `0L`          | -2⁶³ to 2⁶³-1                    |
+| `float`   | 4 bytes (32 bits)                                                                        | `0.0f`        | ~6–7 decimal digits              |
+| `double`  | 8 bytes (64 bits)                                                                        | `0.0d`        | ~15–16 decimal digits            |
+| `char`    | 2 bytes (16 bits)                                                                        | `'\u0000'`    | Unicode characters (0 to 65,535) |
+| `boolean` | JVM-dependent (typically 1 byte in memory; not fixed by the Java Language Specification) | `false`       | `true` or `false`                |
+Non-Primitive Data Types
+String
+Arrays
+Classes
+Interfaces
+Enums
+Objects
+
+Note: Non-primitive data types do not have a fixed size. Their size depends on the JVM implementation and the object they reference.
+
+15.How Do You Declare an Array in Java?
+-> An array in Java is declared by specifying the data type followed by square brackets ([]) and the array name. After declaration, memory can be allocated 
+using the new keyword, or the array can be initialized directly with values.
+// Declaration
+dataType[] arrayName;
+
+// Declaration and Memory Allocation
+dataType[] arrayName = new dataType[size];
+
+// Declaration and Initialization
+dataType[] arrayName = {value1, value2, value3};
+
+16.How Do You Find the Length of an Array in Java?
+-> The length of an array in Java is obtained using the length property. It returns the total number of elements in the array. Since length is a property of arrays,
+it is accessed without parentheses. (arrayName.length)
+
+17.What is the Use of the PATH Variable?
+->The PATH environment variable is used by the operating system to locate executable programs. In Java, setting the PATH variable allows you to run Java
+commands such as java, javac, jar, and javadoc from any directory in the command prompt or terminal without specifying their full installation path.
+Example
+If the PATH variable is set correctly, you can simply run:
+javac Hello.java
+java Hello
+Instead of: C:\Program Files\Java\jdk-21\bin\javac Hello.java
+
+18.What is the Use of the CLASSPATH Variable?
+-> The CLASSPATH is an environment variable that tells the JVM and Java compiler where to find user-defined classes, packages, and external library files (JAR files) 
+required by a Java program. If a required class or library is not found in the CLASSPATH, Java throws a ClassNotFoundException or NoClassDefFoundError.
+Example
+Suppose your project uses an external library mysql-connector.jar.
+You can include it in the classpath like this:
+javac -cp .;lib/mysql-connector.jar MyProgram.java
+java -cp .;lib/mysql-connector.jar MyProgram
+
+19.How Do You Assign Values to PATH and CLASSPATH Variables?
+-> The PATH and CLASSPATH variables are configured as environment variables in the operating system. The PATH variable is set to the JDK's bin directory so Java commands like java and javac can be executed from any location. The CLASSPATH variable is set to the directories containing Java class files and external JAR files so that the JVM and compiler can locate them.
+  Setting PATH (Windows):-
+Open System Properties → Advanced → Environment Variables.
+Under System Variables, select Path → Edit.
+Add the JDK bin directory, for example:
+C:\Program Files\Java\jdk-21\bin
+Save the changes and restart the Command Prompt.
+  Setting CLASSPATH (Windows):-
+Create a new environment variable:
+Variable Name: CLASSPATH
+Variable Value:
+.;C:\Program Files\Java\jdk-21\lib
+Or include your project folder and JAR files:
+.;C:\MyProject\classes;C:\MyProject\lib\mysql-connector.jar
+. represents the current working directory.
+Verify the Settings
+java -version
+javac -version
+echo %PATH%
+echo %CLASSPATH%
+
+20.What are the Characteristic Features of Java?
+-> Java is a high-level, object-oriented, secure, robust, and platform-independent programming language. It is designed with features that make it reliable, portable, and suitable for developing enterprise, web, mobile, and desktop applications. The main characteristics of Java are:
+Simple – Java has a clean syntax and removes complex features like pointers and operator overloading.
+Object-Oriented – Everything is based on classes and objects, supporting encapsulation, inheritance, polymorphism, and abstraction.
+Platform Independent – Java follows "Write Once, Run Anywhere (WORA)" by compiling source code into bytecode, which runs on any platform with a JVM.
+Portable – Java programs can be moved from one platform to another without modification.
+Secure – Java provides security through the JVM, Bytecode Verifier, Class Loader, and the absence of explicit pointers.
+Robust – Java has strong memory management, exception handling, and automatic garbage collection, making applications reliable.
+Multithreaded – Java supports concurrent execution of multiple threads, improving performance and responsiveness.
+Distributed – Java provides built-in support for networking, making it suitable for distributed applications.
+High Performance – The JIT (Just-In-Time) Compiler optimizes frequently executed code, improving runtime performance.
+Dynamic – Java can load classes dynamically at runtime using the Class Loader.
+Architecture Neutral – Java bytecode is independent of the underlying processor architecture.
+Interpreted and Compiled – Java source code is compiled into bytecode by javac, and the JVM interprets or JIT-compiles it during execution.
+
+21.In which interface we can find the interface of foreach method?
+->here is no foreach method in Java. The enhanced for loop (for-each loop) is a language feature, not a method. It can be used with arrays and any object that implements the Iterable interface.
+The Iterable interface provides the following method:
+Iterator<T> iterator();
+The enhanced for-each loop internally uses this iterator() method to traverse the collection.
+Example
+import java.util.ArrayList;
+public class Demo {
+    public static void main(String[] args) {
+        ArrayList<String> list = new ArrayList<>();
+        list.add("Java");
+        list.add("Python");
+        list.add("C++");
+        for (String language : list) {
+            System.out.println(language);
+        }
+    }
+}
+
+22.When Do We Prefer Parallel Sort Over Serial Sort?
+-> We prefer parallelSort() over sort() when sorting large datasets on a multi-core processor. parallelSort() divides the array into smaller parts,
+sorts them simultaneously using multiple threads (Fork/Join framework), and then merges the results. This improves performance for large arrays.
+For small datasets, sort() is generally preferred because the overhead of creating and managing multiple threads can make parallelSort() slower.
+
+
+
+
+
+
+
+
+
 
