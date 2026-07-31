@@ -1,0 +1,548 @@
+
+
+1. Object-oriented programming uses classes and objects. What are classes and what are objects? What is the relationship between classes and objects?
+
+### Class
+
+A **class** is a blueprint or template used to create objects. It defines the properties (variables) and behaviors (methods) of objects.
+
+### Object
+
+An **object** is an instance of a class. It occupies memory and can access the members of the class.
+
+### Relationship
+
+* A class defines the structure.
+* Objects are created from the class.
+* One class can have many objects.
+
+### Example
+
+```java
+class Student {
+    String name;
+    int age;
+
+    void display() {
+        System.out.println(name + " " + age);
+    }
+}
+
+public class Main {
+    public static void main(String args[]) {
+        Student s1 = new Student();
+        s1.name = "Rahul";
+        s1.age = 20;
+        s1.display();
+    }
+}
+```
+
+---
+
+# 2. Explain carefully what null means in Java, and why this special value is necessary.
+
+**null** is a special literal in Java that indicates a reference variable is **not pointing to any object**.
+
+Example:
+
+```java
+Student s = null;
+```
+
+Here, `s` does not refer to any object.
+
+### Why is null necessary?
+
+* Represents the absence of an object.
+* Helps initialize reference variables.
+* Used to indicate "no value available."
+
+Trying to access a null object causes:
+
+```java
+NullPointerException
+```
+
+Example:
+
+```java
+Student s = null;
+s.display();   // NullPointerException
+```
+
+---
+
+# 3. What are the three parts of a simple empty class? Explain with example.
+
+A simple class has three parts:
+
+1. **Access Modifier** (public)
+2. **Class Keyword** (class)
+3. **Class Name**
+
+Example:
+
+```java
+public class Student {
+
+}
+```
+
+Here,
+
+* `public` → Access modifier
+* `class` → Keyword
+* `Student` → Class name
+
+---
+
+# 4. What is a constructor? What is the purpose of a constructor in a class?
+
+A **constructor** is a special method that is automatically called when an object is created.
+
+### Characteristics
+
+* Same name as class
+* No return type
+* Initializes object
+
+Example
+
+```java
+class Student {
+    Student() {
+        System.out.println("Constructor Called");
+    }
+}
+
+public class Main {
+    public static void main(String args[]) {
+        Student s = new Student();
+    }
+}
+```
+
+Output
+
+```
+Constructor Called
+```
+
+---
+
+# 5. What is meant by the terms instance variable and instance method?
+
+### Instance Variable
+
+A variable declared inside a class but outside methods.
+
+Example
+
+```java
+class Student {
+    String name;
+}
+```
+
+### Instance Method
+
+A method that operates on instance variables.
+
+```java
+class Student {
+    String name;
+
+    void display() {
+        System.out.println(name);
+    }
+}
+```
+
+---
+
+# 6. Explain what is meant by the terms subclass and superclass.
+
+### Superclass
+
+The class whose properties are inherited.
+
+### Subclass
+
+The class that inherits another class.
+
+Example
+
+```java
+class Animal {
+    void eat() {
+        System.out.println("Eating");
+    }
+}
+
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Barking");
+    }
+}
+```
+
+Animal → Superclass
+
+Dog → Subclass
+
+---
+
+# 7. Explain the term polymorphism.
+
+Polymorphism means **one interface, many forms**.
+
+Types:
+
+* Compile-time Polymorphism (Method Overloading)
+* Run-time Polymorphism (Method Overriding)
+
+Example
+
+```java
+class Animal {
+    void sound() {
+        System.out.println("Animal Sound");
+    }
+}
+
+class Dog extends Animal {
+    void sound() {
+        System.out.println("Bark");
+    }
+}
+```
+
+---
+
+# 8. Java uses "garbage collection" for memory management. Explain what is meant here by garbage collection. What is the alternative to garbage collection?
+
+Garbage Collection automatically removes unused objects from memory.
+
+Example
+
+```java
+Student s = new Student();
+s = null;
+```
+
+Now the object becomes eligible for garbage collection.
+
+### Alternative
+
+Manual memory management (used in C/C++).
+
+Programmer uses:
+
+* malloc()
+* free()
+
+---
+
+# 9. Bring out the importance of Inheritance with the help of an example.
+
+Inheritance promotes:
+
+* Code Reusability
+* Extensibility
+* Maintainability
+
+Example
+
+```java
+class Vehicle {
+    void start() {
+        System.out.println("Vehicle Started");
+    }
+}
+
+class Car extends Vehicle {
+    void drive() {
+        System.out.println("Car Driving");
+    }
+}
+```
+
+Car can use `start()` without rewriting it.
+
+---
+
+# 10. When do we declare the members of the class as static? Explain with example.
+
+Use **static** when a member belongs to the class instead of individual objects.
+
+Example
+
+```java
+class Student {
+    static String college = "GCETTS";
+    String name;
+}
+```
+
+All objects share the same college.
+
+Access:
+
+```java
+System.out.println(Student.college);
+```
+
+---
+
+# 11. When do we declare a method or class as final? Explain with example.
+
+### Final Class
+
+Cannot be inherited.
+
+```java
+final class Animal {
+
+}
+```
+
+### Final Method
+
+Cannot be overridden.
+
+```java
+class Animal {
+    final void sound() {
+        System.out.println("Animal");
+    }
+}
+```
+
+---
+
+# 12. What is the advantage of using "this" keyword? Explain.
+
+`this` refers to the current object.
+
+Uses:
+
+* Resolve variable ambiguity
+* Invoke current constructor
+* Pass current object
+
+Example
+
+```java
+class Student {
+    int id;
+
+    Student(int id) {
+        this.id = id;
+    }
+}
+```
+
+`this.id` refers to the instance variable.
+
+---
+
+# 13. Explain about inner classes with an example.
+
+An **inner class** is a class declared inside another class.
+
+Example
+
+```java
+class Outer {
+
+    class Inner {
+        void display() {
+            System.out.println("Inner Class");
+        }
+    }
+}
+
+public class Main {
+    public static void main(String args[]) {
+        Outer obj = new Outer();
+        Outer.Inner in = obj.new Inner();
+        in.display();
+    }
+}
+```
+
+Advantages:
+
+* Better encapsulation
+* Logical grouping
+* Access outer class members
+
+---
+
+# 14. Explain how super keyword is used in overriding the methods.
+
+`super` calls the parent class method.
+
+Example
+
+```java
+class Animal {
+    void sound() {
+        System.out.println("Animal Sound");
+    }
+}
+
+class Dog extends Animal {
+
+    void sound() {
+        super.sound();
+        System.out.println("Dog Bark");
+    }
+}
+```
+
+Output
+
+```
+Animal Sound
+Dog Bark
+```
+
+---
+
+# 15. Explain the use of super() method in invoking a constructor.
+
+`super()` calls the constructor of the parent class.
+
+Example
+
+```java
+class Animal {
+
+    Animal() {
+        System.out.println("Animal Constructor");
+    }
+}
+
+class Dog extends Animal {
+
+    Dog() {
+        super();
+        System.out.println("Dog Constructor");
+    }
+}
+```
+
+Output
+
+```
+Animal Constructor
+Dog Constructor
+```
+
+---
+
+# 16. When does a base class variable get hidden? Give reasons.
+
+A base class variable is hidden when the subclass declares another variable with the **same name**.
+
+Example
+
+```java
+class A {
+    int x = 10;
+}
+
+class B extends A {
+    int x = 20;
+}
+```
+
+Reason:
+The subclass variable hides the superclass variable because Java uses **variable hiding**, not variable overriding, for fields.
+
+---
+
+# 17. Explain with an example how we can access a hidden base class variable.
+
+Use the **super** keyword.
+
+Example
+
+```java
+class A {
+    int x = 10;
+}
+
+class B extends A {
+
+    int x = 20;
+
+    void display() {
+        System.out.println(super.x);
+        System.out.println(x);
+    }
+}
+```
+
+Output
+
+```
+10
+20
+```
+
+---
+
+# 18. Can we extend Optional class?
+
+**No.**
+
+Reason:
+`java.util.Optional` is declared as a **final** class.
+
+```java
+public final class Optional<T>
+```
+
+A `final` class cannot be extended.
+
+---
+
+# 19. Which package contains Optional class?
+
+The `Optional` class belongs to the **java.util** package.
+
+Import statement:
+
+```java
+import java.util.Optional;
+```
+
+---
+
+## Quick Revision Table
+
+| Q.No | Topic                  | Key Point                           |
+| ---- | ---------------------- | ----------------------------------- |
+| 1    | Class & Object         | Blueprint and Instance              |
+| 2    | null                   | No object reference                 |
+| 3    | Empty Class            | Modifier, class keyword, class name |
+| 4    | Constructor            | Initializes object                  |
+| 5    | Instance Members       | Belong to objects                   |
+| 6    | Inheritance            | Superclass & Subclass               |
+| 7    | Polymorphism           | One interface, many forms           |
+| 8    | Garbage Collection     | Automatic memory management         |
+| 9    | Inheritance            | Code reusability                    |
+| 10   | static                 | Shared by all objects               |
+| 11   | final                  | Prevent inheritance/overriding      |
+| 12   | this                   | Refers to current object            |
+| 13   | Inner Class            | Class inside another class          |
+| 14   | super                  | Calls parent method                 |
+| 15   | super()                | Calls parent constructor            |
+| 16   | Variable Hiding        | Same variable name in subclass      |
+| 17   | Access Hidden Variable | `super.variableName`                |
+| 18   | Optional               | Cannot extend (`final`)             |
+| 19   | Package                | `java.util.Optional`                |
+
