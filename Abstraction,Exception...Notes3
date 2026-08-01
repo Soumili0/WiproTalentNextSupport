@@ -1,5 +1,6 @@
 1. What are called Abstract classes?
--> An abstract class is a class declared with the `abstract` keyword. It cannot be instantiated and may contain both **abstract methods** (without implementation) and **concrete methods** (with implementation).
+-> An abstract class is a class declared with the abstract keyword. It cannot be instantiated and may contain both 
+abstract methods (without implementation) and concrete methods (with implementation).
 Example:
 abstract class Animal {
     abstract void sound();
@@ -96,7 +97,8 @@ abstract class B extends A { }   // Error
 
 
 11. What are interfaces?
--> An interface is a blueprint that contains abstract methods (and may contain default/static methods). It is used to achieve **100% abstraction** (before Java 8) and **multiple inheritance**.
+-> An interface is a blueprint that contains abstract methods (and may contain default/static methods). 
+It is used to achieve 100% abstraction (before Java 8) and multiple inheritance.
 
 
 
