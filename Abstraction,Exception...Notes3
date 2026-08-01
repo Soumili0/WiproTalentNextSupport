@@ -1,0 +1,315 @@
+1. What are called Abstract classes?
+-> An abstract class is a class declared with the `abstract` keyword. It cannot be instantiated and may contain both **abstract methods** (without implementation) and **concrete methods** (with implementation).
+Example:
+abstract class Animal {
+    abstract void sound();
+
+    void sleep() {
+        System.out.println("Sleeping");
+    }
+}
+
+
+
+2. Can abstract classes have static methods?
+-> Yes. Static methods belong to the class, not to objects.
+abstract class Demo {
+    static void display() {
+        System.out.println("Static Method");
+    }
+}
+
+
+3. Can abstract classes have static variables?
+-> Yes.
+abstract class Demo {
+    static int count = 100;
+}
+
+
+
+4. Can abstract class have static and final variables?
+-> Yes.
+Since static ,final variables are constants, they are allowed.
+abstract class Demo {
+    static final double PI = 3.14;
+}
+
+
+
+5. Can abstract class have static and final methods?
+-> Yes.
+Static Method
+abstract class Demo {
+    static void show() {
+        System.out.println("Static");
+    }
+}
+ Final Method
+java
+abstract class Demo {
+    final void display() {
+        System.out.println("Cannot override");
+    }
+}
+
+
+
+6. Can a subclass directly use the abstract method of the base class without overriding it?
+-> No.
+The subclass **must override** all abstract methods unless the subclass is also declared abstract.
+
+
+
+7. Can we instantiate an abstract class?
+-> No.
+abstract class Animal { }
+Animal a = new Animal();   // Compile-time Error
+
+
+
+8. Can we create a final and abstract method in a class?
+-> No.
+Reason:
+* abstract means must be overridden.
+* final means cannot be overridden.
+Both are contradictory.
+
+
+9. Can an abstract class implement interfaces?
+-> Yes
+It may implement an interface without providing implementations of all methods.
+interface A {
+    void show();
+}
+abstract class B implements A {
+}
+
+
+
+10. Can an abstract class extend a final class?
+-> No.
+A final class cannot be inherited.
+final class A { }
+abstract class B extends A { }   // Error
+
+
+
+11. What are interfaces?
+-> An interface is a blueprint that contains abstract methods (and may contain default/static methods). It is used to achieve **100% abstraction** (before Java 8) and **multiple inheritance**.
+
+
+
+12. How to create an interface?
+-> interface Animal {
+    void sound();
+}
+Implementing:
+class Dog implements Animal {
+    public void sound() {
+        System.out.println("Bark");
+    }
+}
+
+
+13. Difference between Abstract Class and Interface
+
+| Abstract Class              | Interface                                        |
+| --------------------------- | ------------------------------------------------ |
+| Uses `abstract` keyword     | Uses `interface` keyword                         |
+| Can have constructors       | Cannot have constructors                         |
+| Can have instance variables | Only public static final variables               |
+| Can have concrete methods   | Mostly abstract methods (default/static allowed) |
+| Single inheritance          | Multiple interfaces can be implemented           |
+| Uses `extends`              | Uses `implements`                                |
+
+
+
+14. What are Marker Interfaces and why do we use them?
+-> A Marker Interface is an interface without any methods or variables.
+Examples:
+* Serializable
+* Cloneable
+Purpose:
+* Provides metadata to the JVM.
+* Indicates special behavior.
+
+
+
+15. What are packages?
+-> A package** is a collection of related classes and interfaces.
+Example:
+package mypack;
+
+
+
+16. Benefits of Packages
+->* Avoids name conflicts
+* Better organization
+* Access protection
+* Code reusability
+* Easy maintenance
+
+
+
+17. Inside a package can we create private classes?
+->No.
+A top-level class can only be:
+* public
+* default (package-private)
+Only nested classes can be private.
+
+
+
+18. Difference between import and import static
+-> import
+Imports classes.
+import java.util.Scanner;
+ import static
+Imports static members.
+import static java.lang.Math.sqrt;
+Now you can directly write:
+sqrt(25);
+
+
+
+19. What are Exceptions?
+->Exceptions are events that interrupt the normal flow of program execution.
+Example:
+int a = 10 / 0;
+Throws:
+ArithmeticException
+
+
+20. Difference between Exceptions, Runtime Errors and Compile-time Errors
+
+| Compile-time Error       | Runtime Error        | Exception                                 |
+| ------------------------ | -------------------- | ----------------------------------------- |
+| Found during compilation | Occurs while running | Object representing an abnormal condition |
+| Missing semicolon        | Divide by zero       | IOException                               |
+| Prevents compilation     | Program crashes      | Can be handled                            |
+
+
+
+21. Throwable class belongs to which package?
+-> Package:
+java.lang
+
+
+22. What are the two types of Exceptions?
+1. Checked Exception
+Checked at compile time.
+Examples:
+* IOException
+* SQLException
+Must be handled.
+2. Unchecked Exception
+Occurs during runtime.
+Examples:
+* ArithmeticException
+* NullPointerException
+* ArrayIndexOutOfBoundsException
+Handling is optional.
+
+
+23. What is a finally block?
+-> A finally block always executes whether an exception occurs or not (except in cases like JVM termination).
+try {
+}
+catch(Exception e) {
+}
+finally {
+    System.out.println("Always Executes");
+}
+
+
+
+24. Can we have try followed by only finally without catch?
+-> Yes.
+try {
+    System.out.println("Hello");
+}
+finally {
+    System.out.println("Done");
+}
+
+
+
+25. Difference between throw and throws
+
+| throw                                 | throws                                 |
+| ------------------------------------- | -------------------------------------- |
+| Used to explicitly throw an exception | Declares exceptions a method may throw |
+| Used inside method                    | Used in method declaration             |
+| Throws one exception                  | Can declare multiple exceptions        |
+
+Example:
+throw new ArithmeticException("Error");
+void read() throws IOException {
+}
+
+26. Can the same exception be declared multiple times?
+-> No.
+public void sample()
+throws IOException, IOException, SQLException
+This causes a compile-time error because duplicate exceptions are not allowed.
+
+
+
+27. What are User-defined Exceptions?
+-> Exceptions created by programmers by extending the Exception class or RuntimeException.
+Example:
+class InvalidAgeException extends Exception {
+}
+
+
+
+28. Why do we need User-defined Exceptions?
+-> To represent application-specific errors.
+Examples:
+* Invalid salary
+* Invalid account number
+* Insufficient balance
+* Invalid age
+* Invalid marks
+
+
+
+29. How to give custom messages while throwing predefined exceptions?
+-> Pass a message to the exception constructor.
+throw new ArithmeticException("Division by zero is not allowed");
+or
+throw new IllegalArgumentException("Age must be greater than 18");
+
+
+30. Can we override the static methods present in an interface?
+->No.
+Static methods in an interface belong to the interface itself and are not inherited by implementing classes,
+so they cannot be overridden. They can only be called using the interface name.
+interface Demo {
+    static void show() {
+        System.out.println("Static Method");
+    }
+}
+
+class Test implements Demo {
+    // Cannot override show()
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Demo.show();
+    }
+}
+
+
+Important Interview Points
+* Abstract class → Cannot be instantiated; can have abstract and concrete methods.
+* Interface → Supports multiple inheritance and defines a contract.
+* Marker Interface → Empty interface used to provide metadata (Serializable, Cloneable).
+* Package → Groups related classes and avoids naming conflicts.
+* Checked Exception → Compile-time checked; must be handled.
+* Unchecked Exception → Runtime exception; handling is optional.
+* throw → Used to throw an exception.
+* throws → Used to declare exceptions in a method signature.
+* finally → Executes regardless of whether an exception occurs (except in rare cases like JVM termination).
