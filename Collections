@@ -123,7 +123,7 @@ Examples:
 | -------------------------- | ----------------------- |
 | Interface                  | Utility class           |
 | Parent of List, Set, Queue | Contains static methods |
-| Stores data                | Manipulates collections |
+| Stores data                 | Manipulates collections |
 
 Examples:
 
@@ -145,9 +145,9 @@ Collections.shuffle(list);
 
 
 
- 13. What is the advantage of Properties file?
-A Properties file stores configuration in **key=value** format.
-Advantages:
+13. What is the advantage of Properties file?
+A Properties file stores configuration in key=value format.
+Advantages:  
 * Easy to modify
 * No recompilation needed
 * Used for database configuration
@@ -160,7 +160,7 @@ password=12345
 
 
 
- 14. What are the classes implementing List interface?
+14.What are the classes implementing List interface?
 Common implementations are:
 * ArrayList
 * LinkedList
@@ -169,7 +169,7 @@ Common implementations are:
 
 
 
- 15. What are Collection-related features in Java 8?
+15.What are Collection-related features in Java 8?
 Important Java 8 Collection features:
 * Stream API
 * Lambda Expressions
@@ -185,7 +185,7 @@ list.stream()
     .forEach(System.out::println);
 
 
- 16. What is Java Collections Framework? List out some benefits of Collections Framework.
+16. What is Java Collections Framework? List out some benefits of Collections Framework.
 The Java Collections Framework (JCF) is a set of classes and interfaces used to store, manipulate, 
 and process groups of objects efficiently.
 Benefits:
@@ -198,10 +198,9 @@ Benefits:
 Interview Point: Common interfaces include List, Set, Queue, Map.
 
 
-
- 17. What is the benefit of Generics in Collections Framework?
-Generics provide **type safety** by allowing collections to store only a specified type of object.
- Advantages:
+17. What is the benefit of Generics in Collections Framework?
+Generics provide type safety by allowing collections to store only a specified type of object.
+Advantages:
 * Compile-time type checking
 * No explicit type casting
 * Fewer runtime errors
@@ -227,13 +226,10 @@ Collection
    |-- Queue
 
 
-
-
- 19. Why Collection doesn't extend Cloneable and Serializable interfaces?
+19.Why Collection doesn't extend Cloneable and Serializable interfaces?
 Because not every collection implementation supports cloning or serialization.
 Different implementations have different capabilities, so Java leaves these 
 features to the implementing classes instead of forcing all collections to support them.
-
 
 
 20. Why Map interface doesn't extend Collection interface?
@@ -244,10 +240,9 @@ Examples:
 * Map → put(), get(), remove(key)
 
 
-21. What is an Iterator?
+21.What is an Iterator?
 An Iterator is an interface used to traverse elements of a collection one by one.
 Important Methods:
-java
 hasNext()
 next()
 remove()
@@ -261,8 +256,7 @@ while(it.hasNext()){
 22. How can ArrayList be synchronized without using Vector?
 Use the Collections.synchronizedList() method.
 Example:
-List<String> list =
-Collections.synchronizedList(new ArrayList<>());
+List<String> list = Collections.synchronizedList(new ArrayList<>());
 This makes the ArrayList thread-safe.
 
 
@@ -271,7 +265,7 @@ Use ArrayList:
 * Frequent searching
 * Random access
 * Less insertion/deletion
- Use LinkedList:
+Use LinkedList:
 * Frequent insertion
 * Frequent deletion
 * Queue implementation
@@ -280,8 +274,7 @@ Interview Tip:
 * Insert/Delete → LinkedList
 
 
- 24. What are the advantages of iterating a collection using Iterator?
-Advantages:
+24. What are the advantages of iterating a collection using Iterator?
 * Works with all collection types
 * Supports element removal during iteration
 * Avoids index handling
@@ -295,7 +288,7 @@ Instead, use a collection of collections, such as:
 List<List<String>> lists = new ArrayList<>();
 
 
- 26. Why can't we write code as List numbers = new ArrayList();?
+26. Why can't we write code as List numbers = new ArrayList();?
 You can write it, but it uses a raw type, which is not recommended.
 Problems:
 * No type safety
@@ -307,25 +300,24 @@ List<Integer> numbers = new ArrayList<>();
 
  27. What is the difference between Comparable and Comparator interface?
 
-| Comparable            | Comparator              |
-| --------------------- | ----------------------- |
-| Package: `java.lang`  | Package: `java.util`    |
-| Method: `compareTo()` | Method: `compare()`     |
-| Natural sorting       | Custom sorting          |
-| One sorting logic     | Multiple sorting logics |
-
+| Comparable         | Comparator           |
+| -------------------| -------------------- |
+| Package:java.lang  | Package:java.util    |
+| Method:compareTo() | Method: compare()    |
+| Natural sorting    | Custom sorting       |
+| One sorting logic  | Multiple sorting logics|
 
 
 28. What is Collections Class?
 Collections is a utility class in java.util that provides static methods to operate on collections.
  Common Methods:
-* `sort()`
-* `reverse()`
-* `shuffle()`
-* `binarySearch()`
-* `max()`
-* `min()`
-* `synchronizedList()`
+* sort()
+* reverse()
+* shuffle()
+* binarySearch()
+* max()
+* min()
+* synchronizedList()
 Example:
 Collections.sort(list);
 Collections.reverse(list);
@@ -336,7 +328,7 @@ Comparable
 Used for natural/default sorting.
 Method:
 compareTo()
- Comparator
+Comparator
 Used for custom sorting.
 Method:
 compare()
@@ -345,16 +337,14 @@ Example:
 * Comparator → Sort students by Name, Age, or Marks.
 
 
-
- 30. What are the similarities and differences between ArrayList and Vector?
+30. What are the similarities and differences between ArrayList and Vector?
 Similarities:
-* Both implement the `List` interface.
+* Both implement the List interface.
 * Both maintain insertion order.
 * Both allow duplicate elements.
 * Both provide random access using indexes.
 * Both use dynamic arrays.
 Differences:
-
 | ArrayList                | Vector                      |
 | ------------------------ | --------------------------- |
 | Not synchronized         | Synchronized                |
@@ -366,7 +356,7 @@ Interview Tip:
 * Use Vector only when built-in synchronization is specifically required.
 
 
-31. How to decide between HashMap and TreeMap?
+31.How to decide between HashMap and TreeMap?
 Use HashMap when:
 * Fast insertion and retrieval are required.
 * Key ordering is not important.
@@ -384,278 +374,127 @@ Interview Tip: Choose **HashMap** for performance and **TreeMap** when sorted ke
 
 
  32. What are different Collection views provided by Map interface?
-The `Map` interface provides three collection views:
-1. **keySet()** – Returns all keys as a `Set`.
-2. **values()** – Returns all values as a `Collection`.
-3. **entrySet()** – Returns all key-value pairs as a `Set<Map.Entry<K,V>>`.
-
-### Example
-
-```java
+The Map interface provides three collection views:
+1. keySet() – Returns all keys as a Set.
+2. values() – Returns all values as a Collection.
+3. entrySet() – Returns all key-value pairs as a Set<Map.Entry<K,V>>.
 Map<String, Integer> map = new HashMap<>();
-
 Set<String> keys = map.keySet();
 Collection<Integer> values = map.values();
 Set<Map.Entry<String, Integer>> entries = map.entrySet();
-```
 
----
 
-# 33. What is the importance of hashCode() and equals() methods?
+33. What is the importance of hashCode() and equals() methods?
+equals() determines whether two objects are logically equal.
+hashCode() returns an integer hash value used by hash-based collections like HashMap and HashSet.
+Rules:
+* If two objects are equal according to equals(), they **must** have the same hashCode().
+* If hashCode() is not overridden properly, collections like HashMap and HashSet may behave incorrectly.
+Interview Tip:Always override both equals() and hashCode() together.
 
-### Answer:
 
-`equals()` determines whether two objects are logically equal.
-
-`hashCode()` returns an integer hash value used by hash-based collections like `HashMap` and `HashSet`.
-
-### Rules:
-
-* If two objects are equal according to `equals()`, they **must** have the same `hashCode()`.
-* If `hashCode()` is not overridden properly, collections like `HashMap` and `HashSet` may behave incorrectly.
-
-**Interview Tip:** Always override **both** `equals()` and `hashCode()` together.
-
----
-
-# 34. Which operator is used with lambda expressions?
-
-### Answer:
-
-The **arrow operator (`->`)** is used.
-
-### Example
-
-```java
+34. Which operator is used with lambda expressions?
+The arrow operator (->) is used.
+Example
 (x, y) -> x + y
-```
 
----
 
-# 35. Which operator is used in method reference?
-
-### Answer:
-
-The **double colon operator (`::`)** is used.
-
-### Example
-
-```java
+35. Which operator is used in method reference?
+The double colon operator (::) is used.
+Example
 System.out::println
-```
 
----
 
-# 36. What are the 4 types of method reference?
-
-### Answer:
-
-1. Reference to a **static method**
-
-   ```java
+36. What are the 4 types of method reference?
+1. Reference to a static method
    ClassName::staticMethod
-   ```
-
-2. Reference to an **instance method of a particular object**
-
-   ```java
+2. Reference to an instance method of a particular object
    object::instanceMethod
-   ```
-
-3. Reference to an **instance method of an arbitrary object of a particular type**
-
-   ```java
+3. Reference to an instance method of an arbitrary object of a particular type
    String::toUpperCase
-   ```
-
-4. Reference to a **constructor**
-
-   ```java
+4. Reference to a constructor
    ArrayList::new
-   ```
+   
 
----
-
-# 37. In which package can we find the Stream API classes and interfaces?
-
-### Answer:
-
+37. In which package can we find the Stream API classes and interfaces?
 The Stream API is available in:
-
-```java
 java.util.stream
-```
-
 Important interfaces/classes:
-
 * Stream
 * IntStream
 * LongStream
 * DoubleStream
 * Collectors
 
----
-
-# 38. Which method was added to the Collection interface to work with Stream API?
-
-### Answer:
-
-The **stream()** method.
-
-### Example
-
-```java
+38. Which method was added to the Collection interface to work with Stream API?
+The stream() method.
+Example
 list.stream()
-```
-
 Java 8 also introduced:
-
-```java
 parallelStream()
-```
 
----
 
-# 39. Which method is used to store the filtered results into a data structure?
-
-### Answer:
-
-The **collect()** method.
-
-Usually used with `Collectors.toList()`.
-
-### Example
-
-```java
+39. Which method is used to store the filtered results into a data structure?
+The collect() method.
+Usually used with Collectors.toList().
+Example
 List<String> result = list.stream()
                           .filter(s -> s.startsWith("A"))
                           .collect(Collectors.toList());
-```
 
----
 
-# 40. Is count() an intermediate operation or a terminal operation?
-
-### Answer:
-
-`count()` is a **terminal operation**.
-
+40. Is count() an intermediate operation or a terminal operation?
+count() is a terminal operation.
 It returns the number of elements in the stream and closes the stream pipeline.
-
-### Example
-
-```java
+Example
 long total = list.stream().count();
-```
 
----
-
-# 41. Where can we find the implementation of filter() method?
-
-### Answer:
-
-The `filter()` method is declared in the **Stream interface** (`java.util.stream.Stream`).
-
-It accepts a `Predicate<T>` and returns a new filtered stream.
-
-### Syntax
-
-```java
+41. Where can we find the implementation of filter() method?
+The filter() method is declared in the Stream interface (java.util.stream.Stream).
+It accepts a Predicate<T> and returns a new filtered stream.
+ Syntax
 stream.filter(predicate)
-```
 
----
 
-# 42. Which functional interface can be used in all contexts where there is no input but an output is expected?
-
-### Answer:
-
-**Supplier<T>**
-
+42. Which functional interface can be used in all contexts where there is no 
+input but an output is expected?
+Supplier<T>
 Package:
-
-```java
 java.util.function
-```
-
 Method:
-
-```java
 T get();
-```
-
-### Example
-
-```java
 Supplier<String> s = () -> "Hello";
 System.out.println(s.get());
-```
 
----
 
-# 43. How many abstract methods can be present in a functional interface?
-
-### Answer:
-
-A functional interface contains **exactly one abstract method**.
-
+43. How many abstract methods can be present in a functional interface?
+A functional interface contains exactly one abstract method.
 It may also contain:
-
 * Default methods
 * Static methods
-* Methods inherited from `Object`
-
+* Methods inherited from Object
 Example:
-
-```java
 @FunctionalInterface
 interface Demo {
     void show();
 }
-```
 
----
 
-# 44. Which class represents both date and time?
-
-### Answer:
-
-**LocalDateTime**
-
+44. Which class represents both date and time?
+LocalDateTime
 Package:
-
-```java
 java.time
-```
-
-### Example
-
-```java
 LocalDateTime now = LocalDateTime.now();
-```
-
 Other related classes:
+* LocalDate → Date only
+* LocalTime → Time only
+* ZonedDateTime → Date, time, and time zone
 
-* `LocalDate` → Date only
-* `LocalTime` → Time only
-* `ZonedDateTime` → Date, time, and time zone
 
----
-
-# 45. How to get the current time zone details?
-
-### Answer:
-
-Use the `ZoneId` class.
-
-### Example
-
-```java
+45. How to get the current time zone details?
+Use the ZoneId class.
+java
 ZoneId zone = ZoneId.systemDefault();
 System.out.println(zone);
-```
-
 To get all available time zones:
-
-```java
 Set<String> zones = ZoneId.getAvailableZoneIds();
