@@ -1,0 +1,119 @@
+1. What are the two types of I/O available in Java?
+Java provides two types of I/O (Input/Output):
+1. Byte Stream I/O
+   * Uses InputStream and OutputStream.
+   * Reads and writes data byte by byte (8 bits).
+   * Suitable for binary files such as images, videos, PDFs, etc.
+Examples:
+   * FileInputStream
+   * FileOutputStream
+   * BufferedInputStream
+   * BufferedOutputStream
+
+2. Character Stream I/O
+   * Uses Reader and Writer.
+   * Reads and writes data character by character (16-bit Unicode).
+   * Suitable for text files.
+Examples:
+   * FileReader
+   * FileWriter
+   * BufferedReader
+   * BufferedWriter
+
+
+
+2. What is the difference between the Reader/Writer class hierarchy and the InputStream/OutputStream class hierarchy?
+
+| Reader/Writer                       | InputStream/OutputStream                       |
+| ----------------------------------- | ---------------------------------------------- |
+| Works with **characters**           | Works with **bytes**                           |
+| Used for **text files**             | Used for **binary files**                      |
+| Supports **Unicode** characters     | Does not process Unicode characters directly   |
+| Base classes: `Reader`, `Writer`    | Base classes: `InputStream`, `OutputStream`    |
+| Example: `FileReader`, `FileWriter` | Example: `FileInputStream`, `FileOutputStream` |
+
+
+3. What value does `readLine()` method return when it reaches the end of the file?
+The readLine() method returns:
+null
+when it reaches the end of the file (EOF).
+Example:
+BufferedReader br = new BufferedReader(new FileReader("test.txt"));
+String line;
+while((line = br.readLine()) != null){
+    System.out.println(line);
+}
+
+
+4. What value does the read() method return when it reaches the end of the file?
+The read() method returns:
+-1
+when it reaches the end of the file (EOF).
+Example:
+FileInputStream fis = new FileInputStream("test.txt");
+int data;
+while((data = fis.read()) != -1){
+    System.out.print((char)data);
+}
+
+
+5. What is serialization in Java?
+Serialization is the process of converting an object's state into a byte stream so that it can be:
+* Saved into a file
+* Sent over a network
+* Stored in a database
+To serialize an object, the class must implement the `Serializable` interface.
+Example:
+class Student implements Serializable {
+    int id;
+    String name;
+}
+
+
+6. How many methods are found in the Serializable interface?
+Zero (0)
+Serializable is a marker interface, meaning it does not contain any methods or fields. 
+It simply indicates that objects of the implementing class can be serialized.
+
+
+
+7. In which Java package is the Serializable interface found?
+The Serializable interface is found in the:
+java.io
+package.
+Import statement:
+import java.io.Serializable;
+
+
+8. What are the static variables found in the System class in Java?
+The System class contains three important static variables:
+1. System.in
+   * Standard input stream.
+   * Used for keyboard input.
+2. System.out
+   * Standard output stream.
+   * Used to display output on the console.
+3. System.err
+   * Standard error output stream.
+   * Used to display error messages.
+Example:
+System.out.println("Hello");
+System.err.println("Error occurred");
+System.in.read();
+
+
+---
+
+## Quick Interview Revision
+
+| Question                      | Answer                                  |
+| ----------------------------- | --------------------------------------- |
+| Types of I/O                  | Byte Stream and Character Stream        |
+| Byte Stream Base Classes      | `InputStream`, `OutputStream`           |
+| Character Stream Base Classes | `Reader`, `Writer`                      |
+| `readLine()` EOF value        | `null`                                  |
+| `read()` EOF value            | `-1`                                    |
+| Serialization                 | Converting an object into a byte stream |
+| Methods in `Serializable`     | 0 (Marker Interface)                    |
+| Package of `Serializable`     | `java.io`                               |
+| Static variables of `System`  | `System.in`, `System.out`, `System.err` |
