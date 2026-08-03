@@ -21,64 +21,62 @@ Boxing
 Converting a primitive value into its corresponding wrapper object.
 int x = 20;
 Integer obj = Integer.valueOf(x);
+
 Unboxing
 Converting a wrapper object back into a primitive value.
 Integer obj = 20;
 int x = obj.intValue();
+
 Autoboxing
 Java automatically converts primitives to wrapper objects.
 Integer num = 100;
+
 Auto-unboxing
 Java automatically converts wrapper objects to primitives.
 Integer num = 100;
 int x = num;
 
+
 3. Why do we need Wrapper Classes?
 Wrapper classes are required because:
 * Collections (ArrayList, HashMap, etc.) store objects only.
-* They provide useful utility methods like `parseInt()`, `compareTo()`, `valueOf()`.
+* They provide useful utility methods like parseInt(), compareTo(), valueOf().
 * They support autoboxing and unboxing.
 * They allow primitive values to be treated as objects.
-* They can store `null`, unlike primitive types.
+* They can store null, unlike primitive types.
 
 
  4. In which package are all Wrapper Classes found?
-All wrapper classes belong to the **java.lang** package.
-No import statement is required because `java.lang` is imported automatically.
+All wrapper classes belong to the java.lang package.
+No import statement is required because java.lang is imported automatically.
 
 
- 5. How many methods are present in the Cloneable interface?
+5. How many methods are present in the Cloneable interface?
 Zero (0).
-The `Cloneable` interface is a **marker interface**.
-It contains **no methods** and only indicates that cloning is allowed.
+The Cloneable interface is a marker interface.
+It contains no methods and only indicates that cloning is allowed.
 
 
  6. In which package is the Cloneable interface found?
+The Cloneable interface belongs to the java.lang package.
 
-The `Cloneable` interface belongs to the **java.lang** package.
 
-
-7. In which class of Java is the `clone()` method found?
-The `clone()` method is defined in the **java.lang.Object** class.
+7. In which class of Java is the clone() method found?
+The clone() method is defined in the java.lang.Object class.
 Signature:
-
 protected Object clone() throws CloneNotSupportedException
-To use it, a class must implement the `Cloneable` interface and override the `clone()` method if it needs public access.
+To use it, a class must implement the Cloneable interface and override the clone() method if it needs public access.
 Example:
-
 class Student implements Cloneable {
     int id = 101;
-
     public Object clone() throws CloneNotSupportedException {
         return super.clone();
     }
 }
-
 public class Demo {
     public static void main(String[] args) throws Exception {
         Student s1 = new Student();
         Student s2 = (Student) s1.clone();
-
         System.out.println(s1.id);
         System.out.println(s2.id);
     }
