@@ -8,11 +8,12 @@
 | Not thread-safe        | Thread-safe                 |
 | Increases size by 50%  | Doubles its size by default |
 
-**Interview Point:** Use **ArrayList** in single-threaded applications and **Vector** in multi-threaded applications (if synchronization is required).
+Interview Point: Use ArrayList in single-threaded applications and Vector in multi-threaded applications
+(if synchronization is required).
 
----
 
-# 2. What is the difference between ArrayList and LinkedList?
+
+ 2. What is the difference between ArrayList and LinkedList?
 
 | ArrayList                         | LinkedList              |
 | --------------------------------- | ----------------------- |
@@ -21,13 +22,13 @@
 | Slow insertion/deletion in middle | Fast insertion/deletion |
 | Less memory                       | More memory             |
 
-**Use ArrayList** for searching.
+Use ArrayList for searching.
 
-**Use LinkedList** for frequent insertions/deletions.
+Use LinkedList for frequent insertions/deletions.
 
----
 
-# 3. Difference between Iterator and ListIterator
+
+ 3. Difference between Iterator and ListIterator
 
 | Iterator                   | ListIterator                |
 | -------------------------- | --------------------------- |
@@ -36,9 +37,9 @@
 | Cannot add elements        | Can add, remove and replace |
 | hasNext()                  | hasNext(), hasPrevious()    |
 
----
 
-# 4. Difference between Iterator and Enumeration
+
+ 4. Difference between Iterator and Enumeration
 
 | Iterator                           | Enumeration            |
 | ---------------------------------- | ---------------------- |
@@ -46,9 +47,9 @@
 | Available in Collections Framework | Legacy interface       |
 | Fail-fast                          | Not fail-fast          |
 
----
 
-# 5. Difference between List and Set
+
+ 5. Difference between List and Set
 
 | List                      | Set                       |
 | ------------------------- | ------------------------- |
@@ -61,9 +62,9 @@ Examples:
 * List → ArrayList, LinkedList
 * Set → HashSet, TreeSet
 
----
 
-# 6. Difference between HashSet and TreeSet
+
+ 6. Difference between HashSet and TreeSet
 
 | HashSet         | TreeSet            |
 | --------------- | ------------------ |
@@ -72,9 +73,9 @@ Examples:
 | Faster          | Slower             |
 | Allows one null | Doesn't allow null |
 
----
 
-# 7. Difference between Set and Map
+
+ 7. Difference between Set and Map
 
 | Set                 | Map                       |
 | ------------------- | ------------------------- |
@@ -82,9 +83,9 @@ Examples:
 | No duplicate values | Duplicate values allowed  |
 | Extends Collection  | Doesn't extend Collection |
 
----
 
-# 8. Difference between HashSet and HashMap
+
+ 8. Difference between HashSet and HashMap
 
 | HashSet                 | HashMap                |
 | ----------------------- | ---------------------- |
@@ -92,9 +93,9 @@ Examples:
 | Uses HashMap internally | Stores mappings        |
 | No duplicate elements   | No duplicate keys      |
 
----
 
-# 9. Difference between HashMap and TreeMap
+
+ 9. Difference between HashMap and TreeMap
 
 | HashMap             | TreeMap                |
 | ------------------- | ---------------------- |
@@ -103,9 +104,9 @@ Examples:
 | Allows one null key | Doesn't allow null key |
 | Uses Hash Table     | Uses Red-Black Tree    |
 
----
 
-# 10. Difference between HashMap and Hashtable
+
+ 10. Difference between HashMap and Hashtable
 
 | HashMap             | Hashtable          |
 | ------------------- | ------------------ |
@@ -114,9 +115,9 @@ Examples:
 | Faster              | Slower             |
 | Java 1.2            | Legacy class       |
 
----
 
-# 11. Difference between Collection and Collections
+
+ 11. Difference between Collection and Collections
 
 | Collection                 | Collections             |
 | -------------------------- | ----------------------- |
@@ -126,15 +127,14 @@ Examples:
 
 Examples:
 
-```java
 Collections.sort(list);
 Collections.reverse(list);
 Collections.shuffle(list);
-```
 
----
 
-# 12. Difference between Comparable and Comparator
+
+
+ 12. Difference between Comparable and Comparator
 
 | Comparable            | Comparator              |
 | --------------------- | ----------------------- |
@@ -143,44 +143,34 @@ Collections.shuffle(list);
 | Single sorting        | Multiple sorting        |
 | Modify original class | No need to modify class |
 
----
 
-# 13. What is the advantage of Properties file?
 
-A **Properties** file stores configuration in **key=value** format.
-
+ 13. What is the advantage of Properties file?
+A Properties file stores configuration in **key=value** format.
 Advantages:
-
 * Easy to modify
 * No recompilation needed
 * Used for database configuration
 * Used for application settings
 * Supports internationalization (i18n)
-
 Example:
-
-```properties
+properties
 username=admin
 password=12345
-```
 
----
 
-# 14. What are the classes implementing List interface?
 
+ 14. What are the classes implementing List interface?
 Common implementations are:
-
 * ArrayList
 * LinkedList
 * Vector
 * Stack
 
----
 
-# 15. What are Collection-related features in Java 8?
 
+ 15. What are Collection-related features in Java 8?
 Important Java 8 Collection features:
-
 * Stream API
 * Lambda Expressions
 * Method References
@@ -189,217 +179,133 @@ Important Java 8 Collection features:
 * Spliterator
 * Default methods in interfaces
 * Parallel Stream
-
 Example:
-
-```java
 list.stream()
     .filter(x -> x > 10)
     .forEach(System.out::println);
-# Java Collections Interview Questions (Q16–Q30)
 
----
 
-# 16. What is Java Collections Framework? List out some benefits of Collections Framework.
-
-### Answer:
-
-The **Java Collections Framework (JCF)** is a set of classes and interfaces used to store, manipulate, and process groups of objects efficiently.
-
-### Benefits:
-
+ 16. What is Java Collections Framework? List out some benefits of Collections Framework.
+The Java Collections Framework (JCF) is a set of classes and interfaces used to store, manipulate, 
+and process groups of objects efficiently.
+Benefits:
 * Reduces programming effort
 * Provides reusable data structures
 * Increases performance
 * Supports generic programming
 * Provides standard APIs
 * Easy searching, sorting, and synchronization
+Interview Point: Common interfaces include List, Set, Queue, Map.
 
-**Interview Point:** Common interfaces include **List, Set, Queue, Map**.
 
----
 
-# 17. What is the benefit of Generics in Collections Framework?
-
-### Answer:
-
+ 17. What is the benefit of Generics in Collections Framework?
 Generics provide **type safety** by allowing collections to store only a specified type of object.
-
-### Advantages:
-
+ Advantages:
 * Compile-time type checking
 * No explicit type casting
 * Fewer runtime errors
 * Improves code readability
-
-### Example:
-
-```java
 List<String> names = new ArrayList<>();
 names.add("Mili");
 // names.add(100); // Compile-time error
-```
 
----
 
-# 18. What are the basic interfaces of Java Collections Framework?
-
-### Main Interfaces:
-
+18. What are the basic interfaces of Java Collections Framework?
+Main Interfaces:
 * Collection
 * List
 * Set
 * Queue
 * Deque
 * Map (separate hierarchy)
-
-**Hierarchy:**
-
-```
+Hierarchy:
 Collection
    |
    |-- List
    |-- Set
    |-- Queue
-```
 
----
 
-# 19. Why Collection doesn't extend Cloneable and Serializable interfaces?
 
-### Answer:
 
+ 19. Why Collection doesn't extend Cloneable and Serializable interfaces?
 Because not every collection implementation supports cloning or serialization.
+Different implementations have different capabilities, so Java leaves these 
+features to the implementing classes instead of forcing all collections to support them.
 
-Different implementations have different capabilities, so Java leaves these features to the implementing classes instead of forcing all collections to support them.
 
----
 
-# 20. Why Map interface doesn't extend Collection interface?
-
-### Answer:
-
-Because **Map stores key-value pairs**, while **Collection stores only individual objects**.
-
+20. Why Map interface doesn't extend Collection interface?
+Because Map stores key-value pairs, while Collection stores only individual objects.
 Their structures and operations are different.
-
 Examples:
-
 * Collection → add(), remove()
 * Map → put(), get(), remove(key)
 
----
 
-# 21. What is an Iterator?
-
-### Answer:
-
-An **Iterator** is an interface used to traverse elements of a collection one by one.
-
-### Important Methods:
-
-```java
+21. What is an Iterator?
+An Iterator is an interface used to traverse elements of a collection one by one.
+Important Methods:
+java
 hasNext()
 next()
 remove()
-```
-
-### Example:
-
-```java
+Example:
 Iterator<String> it = list.iterator();
-
 while(it.hasNext()){
     System.out.println(it.next());
 }
-```
 
----
 
-# 22. How can ArrayList be synchronized without using Vector?
-
-### Answer:
-
-Use the **Collections.synchronizedList()** method.
-
-### Example:
-
-```java
+22. How can ArrayList be synchronized without using Vector?
+Use the Collections.synchronizedList() method.
+Example:
 List<String> list =
 Collections.synchronizedList(new ArrayList<>());
-```
+This makes the ArrayList thread-safe.
 
-This makes the `ArrayList` thread-safe.
 
----
-
-# 23. When to use ArrayList or LinkedList?
-
-### Use ArrayList:
-
+23. When to use ArrayList or LinkedList?
+Use ArrayList:
 * Frequent searching
 * Random access
 * Less insertion/deletion
-
-### Use LinkedList:
-
+ Use LinkedList:
 * Frequent insertion
 * Frequent deletion
 * Queue implementation
-
-**Interview Tip:**
-
+Interview Tip:
 * Search → ArrayList
 * Insert/Delete → LinkedList
 
----
 
-# 24. What are the advantages of iterating a collection using Iterator?
-
-### Advantages:
-
+ 24. What are the advantages of iterating a collection using Iterator?
+Advantages:
 * Works with all collection types
 * Supports element removal during iteration
 * Avoids index handling
 * More flexible than loops
 
----
 
-# 25. Why can't we create a generic array? (e.g., `List<String>[] array = new ArrayList<String>[10];`)
-
-### Answer:
-
-Java does **not allow generic array creation** because arrays are **reified** (know their element type at runtime), while generics use **type erasure** (generic type information is removed at runtime). Combining the two could break type safety.
-
+25. Why can't we create a generic array? (e.g., List<String>[] array = new ArrayList<String>[10];)
+Java does not allow generic array creation because arrays are reified (know their element type at runtime), 
+while generics use type erasure (generic type information is removed at runtime). Combining the two could break type safety.
 Instead, use a collection of collections, such as:
-
-```java
 List<List<String>> lists = new ArrayList<>();
-```
 
----
 
-# 26. Why can't we write code as `List numbers = new ArrayList();`?
-
-### Answer:
-
-You **can** write it, but it uses a **raw type**, which is not recommended.
-
+ 26. Why can't we write code as List numbers = new ArrayList();?
+You can write it, but it uses a raw type, which is not recommended.
 Problems:
-
 * No type safety
 * Compiler warnings
-* Possible `ClassCastException` at runtime
-
-### Correct way:
-
-```java
+* Possible ClassCastException at runtime
+Correct way:
 List<Integer> numbers = new ArrayList<>();
-```
 
----
 
-# 27. What is the difference between Comparable and Comparator interface?
+ 27. What is the difference between Comparable and Comparator interface?
 
 | Comparable            | Comparator              |
 | --------------------- | ----------------------- |
@@ -408,16 +314,11 @@ List<Integer> numbers = new ArrayList<>();
 | Natural sorting       | Custom sorting          |
 | One sorting logic     | Multiple sorting logics |
 
----
 
-# 28. What is Collections Class?
 
-### Answer:
-
-`Collections` is a **utility class** in `java.util` that provides static methods to operate on collections.
-
-### Common Methods:
-
+28. What is Collections Class?
+Collections is a utility class in java.util that provides static methods to operate on collections.
+ Common Methods:
 * `sort()`
 * `reverse()`
 * `shuffle()`
@@ -425,56 +326,34 @@ List<Integer> numbers = new ArrayList<>();
 * `max()`
 * `min()`
 * `synchronizedList()`
-
-### Example:
-
-```java
+Example:
 Collections.sort(list);
 Collections.reverse(list);
-```
 
----
 
-# 29. What is Comparable and Comparator interface?
-
-### Comparable
-
-Used for **natural/default sorting**.
-
+29. What is Comparable and Comparator interface?
+Comparable
+Used for natural/default sorting.
 Method:
-
-```java
 compareTo()
-```
-
-### Comparator
-
-Used for **custom sorting**.
-
+ Comparator
+Used for custom sorting.
 Method:
-
-```java
 compare()
-```
-
-### Example:
-
+Example:
 * Comparable → Sort students by Roll Number.
 * Comparator → Sort students by Name, Age, or Marks.
 
----
 
-# 30. What are the similarities and differences between ArrayList and Vector?
 
-### Similarities:
-
+ 30. What are the similarities and differences between ArrayList and Vector?
+Similarities:
 * Both implement the `List` interface.
 * Both maintain insertion order.
 * Both allow duplicate elements.
 * Both provide random access using indexes.
 * Both use dynamic arrays.
-
-### Differences:
+Differences:
 
 | ArrayList                | Vector                      |
 | ------------------------ | --------------------------- |
@@ -482,49 +361,30 @@ compare()
 | Faster                   | Slower                      |
 | Introduced in Java 1.2   | Legacy class (Java 1.0)     |
 | Grows by 50% when needed | Doubles capacity by default |
+Interview Tip:
+* Use ArrayList for better performance in single-threaded applications.
+* Use Vector only when built-in synchronization is specifically required.
 
-### Interview Tip:
 
-* Use **ArrayList** for better performance in single-threaded applications.
-* Use **Vector** only when built-in synchronization is specifically required.
-
-# Java Collections & Java 8 Interview Questions (Q31–Q45)
-
----
-
-# 31. How to decide between HashMap and TreeMap?
-
-### Answer:
-
-Use **HashMap** when:
-
+31. How to decide between HashMap and TreeMap?
+Use HashMap when:
 * Fast insertion and retrieval are required.
 * Key ordering is not important.
-
-Use **TreeMap** when:
-
+Use TreeMap when:
 * Keys need to be stored in sorted (natural or custom) order.
 * Range-based operations are needed.
-
-### Comparison
-
+ Comparison
 | HashMap             | TreeMap                  |
 | ------------------- | ------------------------ |
 | Unordered           | Sorted by key            |
 | O(1) average time   | O(log n) time            |
 | Allows one null key | Does not allow null keys |
 | Uses Hash Table     | Uses Red-Black Tree      |
+Interview Tip: Choose **HashMap** for performance and **TreeMap** when sorted keys are required.
 
-**Interview Tip:** Choose **HashMap** for performance and **TreeMap** when sorted keys are required.
 
----
-
-# 32. What are different Collection views provided by Map interface?
-
-### Answer:
-
+ 32. What are different Collection views provided by Map interface?
 The `Map` interface provides three collection views:
-
 1. **keySet()** – Returns all keys as a `Set`.
 2. **values()** – Returns all values as a `Collection`.
 3. **entrySet()** – Returns all key-value pairs as a `Set<Map.Entry<K,V>>`.
